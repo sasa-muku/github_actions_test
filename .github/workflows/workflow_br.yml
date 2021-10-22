@@ -1,0 +1,17 @@
+name: workflow_B
+
+on:
+  push:
+    branches:
+      - main
+      - branch-test
+
+jobs:
+  workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo Hello!
