@@ -1,0 +1,20 @@
+name: workflow_multiple_paths
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'file_A'
+      - 'file_B'
+      - 'file_C'
+
+jobs:
+  workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo Hello!
