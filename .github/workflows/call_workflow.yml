@@ -5,6 +5,7 @@ on: push
 permissions:
   id-token: write
   # contents: read
+  statuses: none
 
 jobs:
   call-push-image:
