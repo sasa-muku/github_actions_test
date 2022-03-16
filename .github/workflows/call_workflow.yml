@@ -2,10 +2,10 @@ name: Test reusable workflow
 
 on: push
 
-# permissions:
-#   id-token: write
-#   # contents: read
-#   statuses: none
+permissions:
+  id-token: write
+  contents: read
+  statuses: read
 
 jobs:
   call-push-image:
