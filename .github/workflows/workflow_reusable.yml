@@ -1,0 +1,33 @@
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+      food:
+        required: true
+        type: string 
+    secrets:
+      music:
+        required: true
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: echo
+      run: |
+        echo ${{inputs.name}} likes ${{inputs.food}} and ${{secrets.music}}
+
+  result:
+    if: ${{ always() }}
+    needs:  [echo]
+    runs-on: ubuntu-latest
+    steps:
+    - name: show result
+      run: |
+        echo ${{job.status}}
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

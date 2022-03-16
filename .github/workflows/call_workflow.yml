@@ -1,0 +1,16 @@
+name: Test reusable workflow
+
+on: push
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  call-push-image:
+    uses: sasamuku/github_actions_test/.github/workflows/workflow_reusable.yml@main
+    with:
+      name: Mike
+      food: Apple
+    secrets:
+      music: ${{secrets.MUSIC}}
