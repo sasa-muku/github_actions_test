@@ -14,6 +14,15 @@ on:
 jobs:
   echo:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      pull-requests: write
+      security-events: read
+      statuses: read
     steps:
     - name: Checkout
       uses: actions/checkout@v2
