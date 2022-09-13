@@ -1,4 +1,4 @@
-name: 'Deploy'
+name: workflow_environment_protection
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       - run: echo 'Pre Job'
 
   job:
-    need: [pre-job]
+    needs: [pre-job]
     environment: dev
     runs-on: ubuntu-latest
     steps:
