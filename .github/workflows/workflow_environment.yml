@@ -1,0 +1,21 @@
+name: 'Deploy'
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  pre-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.0
+      - run: echo 'Pre Job'
+
+  job:
+    need: [pre-job]
+    environment: dev
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.0
+      - run: echo 'Job'
